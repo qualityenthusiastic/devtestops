@@ -6,6 +6,10 @@
 	<artifactId>demosampleapplication</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
+	<properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+	</properties>
 	<name>Devops Sample Application</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
