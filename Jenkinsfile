@@ -25,7 +25,8 @@ pipeline{
             bat "mvn test"
             }
         }
-        stage("Sonar Analysis"){
+        stage("Sonar Analysis")
+        {
                     steps{
                     withSonarQubeEnv("sonar-token-rb")
                         {
@@ -34,7 +35,27 @@ pipeline{
                         }
                     }
                 }
-    }
+         }
+         stage ('Upload to Artifactory')
+         {
+            steps
+            {
+               rtMavenDeployer (
+                           id: 'deployer',
+                           serverId: 'Raghav123',
+                           releaseRepo: 'RaghavRepo',
+                           snapshotRepo: 'RaghavRepo'
+                       )
+                       rtMavenRun (
+                           pom: 'pom.xml',
+                           goals: 'clean install',
+                           deployerId: 'deployer',
+                       )
+                       rtPublishBuildInfo (
+                           serverId: 'Raghav123',
+                       )
+            }
+         }
     post{
         success{
             bat "echo success"
