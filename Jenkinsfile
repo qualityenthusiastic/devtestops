@@ -25,11 +25,6 @@ pipeline{
             bat "mvn test"
             }
         }
-        stage("Invoke UI Test Pipeline"){
-			steps{
-				build job: 'Dev-Ops-Freestyle-Practice'
-			}
-		}
     }
     post{
         success{
