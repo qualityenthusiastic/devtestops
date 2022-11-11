@@ -18,7 +18,6 @@ public class TestClass extends TestCase {
 	public int sub(int a, int b) {
 		return a - b;
 	}
-	//this is trigger test
 	@Test
 	public void testAdd() {
 		int total = 8;
